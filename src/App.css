@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+.container {
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 1240px;
+}
+input {
+  outline: none;
+  padding: 16px 20px;
+  border-radius: 8px;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+button {
+  padding: 16px 20px;
+  border-radius: 8px;
+  transition: 0.2s linear;
+  background: grey;
+  font-size: 18px;
+}
+button:hover {
+  opacity: 0.85;
+}
+button:active {
+  transform: scale(1.004);
+}
