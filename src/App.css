@@ -13,7 +13,8 @@ button {
   padding: 16px 20px;
   border-radius: 8px;
   transition: 0.2s linear;
-  background: grey;
+  background: #ccc;
+  border: 1px solid #bbb;
   font-size: 18px;
 }
 button:hover {

@@ -10,6 +10,14 @@ export const productApi = api.injectEndpoints({
       }),
       providesTags: ["Product"],
     }),
+    // Get single request
+    getSingleProduct: build.query({
+      query: (params) => ({
+        url: `products/${id}`,
+        params,
+      }),
+      providesTags: ["Product"],
+    }),
     // Post request
     createProduct: build.mutation({
       query: (body) => ({
@@ -43,5 +51,6 @@ export const {
   useGetProductsQuery,
   useCreateProductMutation,
   useDeleteProductMutation,
+  useGetSingleProductQuery,
   useUpdateProductMutation,
 } = productApi;
