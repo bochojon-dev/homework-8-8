@@ -9,20 +9,6 @@
   padding: 0 20px;
   max-width: 1240px;
 }
-input {
-  outline: none;
-  padding: 16px 20px;
-  border-radius: 8px;
-}
-a {
-  text-decoration: none;
-  color: #000;
-}
-ul {
-  list-style-type: none;
-  display: flex;
-  align-items: center;
-}
 button {
   padding: 16px 20px;
   border-radius: 8px;
@@ -35,4 +21,43 @@ button:hover {
 }
 button:active {
   transform: scale(1.004);
+}
+
+input,
+textarea {
+  padding: 20px;
+  border-radius: 6px;
+  outline: none;
+  border: 1px solid #ccc;
+}
+textarea {
+  resize: none;
+  overflow: auto;
+}
+a {
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+}
+ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+
+.local_images {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+}
+.close_image {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: crimson;
+  font-size: 32px;
+  cursor: pointer;
+}
+.local_image {
+  position: relative;
 }

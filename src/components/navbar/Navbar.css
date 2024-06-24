@@ -1,0 +1,22 @@
+.nav_contents {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+}
+.navbar {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 60px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #eee;
+}
+.navbar input {
+  width: 350px;
+}
+.nav_contents ul {
+  gap: 48px;
+}
