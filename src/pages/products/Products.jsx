@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import "../products/Products.css";
 import {
@@ -7,34 +7,47 @@ import {
 } from "../../context/api/productAPI";
 import { Link } from "react-router-dom";
 import Model from "../../components/navbar/model/Model";
+import axios from "../../api";
 
 const Products = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [model, setModel] = useState(false);
+  const [detailData, setDetailData] = useState(null);
   const { data, isLoading } = useGetProductsQuery({ limit: 50 });
   const [deledeProduct] = useDeleteProductMutation();
   const handleDeleteProductById = (id) => {
     deledeProduct(id);
   };
+  const closeDetail = () => {
+    setDetailData(null);
+    setSearchParams({});
+  };
+  useEffect(() => {
+    let id = searchParams.get("detail");
+    if (id) {
+      axios.get(`/products/${id}`).then((res) => setDetailData(res));
+    }
+  }, [searchParams]);
   return (
     <div className="container">
-      {model ? <Model data={data} close={setModel} /> : <></>}
+      {detailData ? (
+        <Model detailData={detailData} data={data} close={closeDetail} />
+      ) : (
+        <></>
+      )}
       <h2 className="title">Products</h2>
       <div className="products">
         {!isLoading ? (
           data?.data?.products?.map((product) => (
             <div className="product" key={product.id}>
               <img
-                onClick={() => setModel(true)}
+                onClick={() => setSearchParams({ detail: product.id })}
                 src={product.urls[0]}
                 height={250}
                 style={{ backgroundSize: "contain", padding: 30 }}
                 width={250}
                 alt={product.title}
               />
-              <h3 onClick={() => setSearchParams({ detail: product.id })}>
-                Details
-              </h3>
               <Link to={`/product/${product.id}`}>
                 <h3>{product.title}</h3>
               </Link>
