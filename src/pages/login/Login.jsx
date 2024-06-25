@@ -18,7 +18,7 @@ const Login = () => {
       .then((res) => {
         localStorage.setItem("x-auth-token", res.data.data.token),
           localStorage.setItem("user-data", JSON.stringify(res.data.data.user)),
-          navigate("/users");
+          navigate("/products");
       })
       .catch((err) => alert(`Username or Paswword is wrong! \n ${err} `));
     setFormData(initialState);
@@ -28,7 +28,7 @@ const Login = () => {
     <div className="container">
       <div className="login">
         <h2>Log In</h2>
-        <form onSubmit={handleLogin} action="">
+        <form className="login_form" onSubmit={handleLogin} action="">
           <input
             required
             value={formData.UserName}

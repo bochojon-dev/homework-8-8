@@ -5,6 +5,10 @@
   gap: 32px;
   flex-wrap: wrap;
 }
+.title {
+  padding-bottom: 24px;
+  font-size: 36px;
+}
 .product {
   display: flex;
   flex-direction: column;

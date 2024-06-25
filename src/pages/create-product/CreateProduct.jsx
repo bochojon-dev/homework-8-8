@@ -38,6 +38,7 @@ const CreateProduct = () => {
       <form onSubmit={handleCreateProduct} className="create">
         <input
           required
+          placeholder="Enter title"
           autoComplete="off"
           value={formData.title}
           onChange={handleChange}
@@ -46,6 +47,7 @@ const CreateProduct = () => {
         />
         <input
           required
+          placeholder="Enter price"
           autoComplete="off"
           value={formData.price}
           onChange={handleChange}
@@ -54,6 +56,7 @@ const CreateProduct = () => {
         />
         <input
           required
+          placeholder="Enter oldPrice"
           autoComplete="off"
           value={formData.oldPrice}
           onChange={handleChange}
@@ -62,6 +65,7 @@ const CreateProduct = () => {
         />
         <input
           required
+          placeholder="Enter category"
           autoComplete="off"
           value={formData.category}
           onChange={handleChange}
@@ -70,6 +74,7 @@ const CreateProduct = () => {
         />
         <input
           required
+          placeholder="Enter unit"
           autoComplete="off"
           value={formData.units}
           onChange={handleChange}
@@ -78,6 +83,7 @@ const CreateProduct = () => {
         />
         <textarea
           required
+          placeholder="Enter dascription"
           autoComplete="off"
           value={formData.description}
           onChange={handleChange}
@@ -86,20 +92,27 @@ const CreateProduct = () => {
         ></textarea>
         <textarea
           required
+          placeholder="Enter info"
           autoComplete="off"
           value={formData.info}
           onChange={handleChange}
           type="text"
           name="info"
         ></textarea>
-        <div>
-          <input
-            required
-            onChange={(e) => setFiles(e.target.files)}
-            type="file"
-            multiple
-            accept="image/*"
-          />
+        <div className="files">
+          <div className="file">
+            <input
+              className="select_image"
+              style={{ paddingBottom: "-20px !important" }}
+              required
+              placeholder="Select photo"
+              onChange={(e) => setFiles(e.target.files)}
+              type="file"
+              multiple
+              accept="image/*"
+            />
+            <h3>Choose image</h3>
+          </div>
           <LocalImages setFiles={setFiles} files={files} />
         </div>
         <button disabled={isLoading}>create</button>
